@@ -1,66 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Art of Digital Design</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art of Digital Design</title>
+    
+    <!-- ============================================ -->
+    <!-- CSS CODE STARTS HERE -->
+    <!-- ============================================ -->
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+        body {
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
+        /* Container for entire page */
+        .page-wrapper {
+            position: relative;
+            width: 1440px;
+            height: 3109px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            position: absolute;
+            background-color: black;
+            width: 1440px;
+            height: 2033px;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        /* Top Navigation Lines */
+        .top-line,
+        .about-top-line {
+            position: absolute;
+            height: 0;
+            left: 0;
+            top: 103px;
+            width: 1440px;
+        }
+
+        .line-svg {
+            position: absolute;
+            top: -0.5px;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Navigation Text - Common Styles */
+        .nav-about,
+        .nav-links,
+        .nav-projects,
+        .about-nav-about,
+        .about-nav-links {
+            position: absolute;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 400;
+            font-size: 18px;
+            text-align: center;
+            top: 41px;
+            line-height: 1.197;
+        }
+
+        .nav-about,
+        .about-nav-about {
+            left: 60px;
+            width: 113px;
+        }
+
+        .nav-links,
+        .about-nav-links {
+            left: 259px;
+            width: 65px;
+        }
+
+        .nav-projects {
+            left: 410px;
+            width: 97px;
+        }
+
+        /* Hero Navigation Colors */
+        .nav-about,
+        .nav-links,
+        .nav-projects {
+            color: white;
+        }
+
+        /* About Navigation Colors */
+        .about-nav-about {
+            color: #de82ff;
+        }
+
+        .about-nav-links {
+            color: #f4edff;
+        }
+
+        /* Headings */
+        .main-heading,
+        .subheading,
+        .about-heading {
+            position: absolute;
+            font-family: 'Aboreto', serif;
+            font-weight: 400;
+            text-align: center;
+            color: white;
+        }
+
+        /* Main Heading */
+        .main-heading {
+            left: 415px;
+            right: 416px;
+            top: 379px;
+            font-size: 77px;
+            line-height: 1.197;
+        }
+
+        /* Subheading */
+        .subheading {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 279px;
+            width: 233px;
+            font-size: 20px;
+            color: #ebd9ff;
+            line-height: 1.197;
+        }
+
+        /* Description Text */
+        .description {
+            position: absolute;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            color: #ece0ff;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 635px;
+            width: 743px;
+            line-height: 0.83;
+        }
+
+        /* See More Button */
+        .see-more-button {
+            position: absolute;
+            border: 2px solid #e2d0ff;
+            border-radius: 33px;
+            width: 190px;
+            height: 48px;
+            left: 625px;
+            top: 820px;
+        }
+
+        .see-more-text {
+            position: absolute;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 830px;
+            width: 97px;
+            line-height: 1.197;
+        }
+
+        /* Star Images */
+        .star-1,
+        .star-2 {
+            position: absolute;
+            width: 268px;
+            height: 268px;
+        }
+
+        .star-1 {
+            left: 1109px;
+            top: 165px;
+        }
+
+        .star-2 {
+            left: 56px;
+            top: 696px;
+        }
+
+        .star-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-section {
+            position: absolute;
+            background-color: #02000e;
+            width: 1440px;
+            height: 1024px;
+            left: 0;
+            top: 1077px;
+            overflow: hidden;
+        }
+
+        /* Purple Accent Bar */
+        .accent-bar {
+            position: absolute;
+            background-color: #170378;
+            width: 367px;
+            height: 79px;
+            left: 108px;
+            top: 244px;
+        }
+
+        /* About Us Heading */
+        .about-heading {
+            left: 102px;
+            top: 253px;
+            width: 380px;
+            font-size: 40px;
+            line-height: 1.21;
+        }
+
+        /* Purple Background Box */
+        .content-box {
+            position: absolute;
+            background-color: #250f90;
+            width: 810px;
+            height: 403px;
+            left: 102px;
+            top: 367px;
+        }
+
+        /* About Text Content */
+        .about-text {
+            position: absolute;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 24px;
+            color: white;
+            left: 134px;
+            top: 398px;
+            width: 757px;
+            line-height: 1.21;
+        }
+
+        .about-text p {
+            margin-bottom: 24px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Side Image */
+        .side-image {
+            position: absolute;
+            width: 283px;
+            height: 400px;
+            left: 987px;
+            top: 367px;
+        }
+
+        .side-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <!-- ============================================ -->
+    <!-- CSS CODE ENDS HERE -->
+    <!-- ============================================ -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="#about">About</a>
-      <a href="#links">Links</a>
-      <a href="#projects">Projects</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <main>
-    <section class="hero">
-      <img src="https://raw.githubusercontent.com/Figma-Cool/assets/main/star-pink.png" alt="" class="star star-top">
-      <img src="https://raw.githubusercontent.com/Figma-Cool/assets/main/star-pink.png" alt="" class="star star-bottom">
-
-      <p class="hero-subtitle">online presentation</p>
-
-      <h1 class="hero-title">
-        ART OF DIGITAL<br>DESIGN
-      </h1>
-
-      <p class="hero-text">
-        Learn, grow, design. In our school we provide high end education on the most modern webdesign techniques.
-      </p>
-
-      <button class="btn">See More</button>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <h2 class="section-title">About us</h2>
-
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              We are an online web design school where creativity meets real-world skills.
-            </p>
-            <p>
-              Start learning with us and build the skills that shape the web.
-            </p>
-          </div>
-
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400" alt="Students" class="about-image">
+    <!-- Main Page Wrapper -->
+    <div class="page-wrapper">
+        
+        <!-- ========== HERO SECTION ========== -->
+        <div class="hero-section">
+            <!-- Top Navigation Line -->
+            <div class="top-line">
+                <svg class="line-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 0.5">
+                    <line stroke="white" stroke-opacity="0.56" stroke-width="0.5" x2="1440" y1="0.25" y2="0.25" />
+                </svg>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <p class="nav-about">About us</p>
+            <p class="nav-links">Links</p>
+            <p class="nav-projects">Projects</p>
+            
+            <!-- Online Presentation Label -->
+            <p class="subheading">online presentation</p>
+            
+            <!-- Main Heading -->
+            <p class="main-heading">ART OF DIGITAL design</p>
+            
+            <!-- Description Text -->
+            <p class="description">Learn, grow, design. In our school we peovide high end education on the most modern webdesign techniques, follow us for more infomrmation on how to enroll</p>
+            
+            <!-- See More Button -->
+            <div class="see-more-button"></div>
+            <p class="see-more-text">See More</p>
+            
+            <!-- Star Images -->
+            <div class="star-1">
+                <img class="star-img" src="src/imports/8e08a93e103d927dd291cfa639f9dd01fdf429c2.png" alt="Star decoration">
+            </div>
+            <div class="star-2">
+                <img class="star-img" src="src/imports/8e08a93e103d927dd291cfa639f9dd01fdf429c2.png" alt="Star decoration">
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
-
+        
+        <!-- ========== ABOUT SECTION ========== -->
+        <div class="about-section">
+            <!-- Purple Accent Bar -->
+            <div class="accent-bar"></div>
+            
+            <!-- Top Line -->
+            <div class="about-top-line">
+                <svg class="line-svg" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 0.5">
+                    <line stroke="white" stroke-opacity="0.56" stroke-width="0.5" x2="1440" y1="0.25" y2="0.25" />
+                </svg>
+            </div>
+            
+            <!-- Navigation -->
+            <p class="about-nav-about">About us</p>
+            <p class="about-nav-links">Links</p>
+            
+            <!-- About Us Heading -->
+            <p class="about-heading">About us</p>
+            
+            <!-- Purple Content Box Background -->
+            <div class="content-box"></div>
+            
+            <!-- About Text Content -->
+            <div class="about-text">
+                <p>We are an online web design school where creativity meets real-world skills. We teach you how to design most innovative and modern web pages and beyond. Our courses are practical, beginner-friendly, and focused on helping you actually create. With clear guidance, real projects, and a supportive learning environment, we help you turn ideas into websites you're proud of.</p>
+                <p>Start learning with us and build the skills that shape the web.</p>
+            </div>
+            
+            <!-- Side Image -->
+            <div class="side-image">
+                <img src="src/imports/fa1a7b7fb2b090125a305e19433625fd155e212c.png" alt="Design showcase">
+            </div>
+        </div>
+        
+    </div>
 </body>
 </html> 
